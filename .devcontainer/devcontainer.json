@@ -10,20 +10,57 @@
     "customizations": {
         "vscode" : {
             "settings": {
+                // term
                 "terminal.integrated.profiles.linux": {
                     "term": {
                         "path": "/bin/sh"
                     }
                 },
                 "terminal.integrated.defaultProfile.linux": "term",
+                // editor
+                "editor.acceptSuggestionOnCommitCharacter": false,
+                "editor.acceptSuggestionOnEnter": "on",
+                "editor.autoClosingBrackets": "never",
+                "editor.autoClosingQuotes": "never",
+                "editor.minimap.enabled": false,
+                "editor.wordWrap": "wordWrapColumn",
+                "editor.wordWrapColumn": 120,
+                // explorer
+                "explorer.autoReveal": false,
+                "explorer.confirmDelete": false,
+                "explorer.confirmDragAndDrop": false,
+                // window
+                "window.menuBarVisibility": "hidden",
                 "python.linting.enabled": true,
-                "python.linting.pylintEnabled": true
+                "python.linting.pylintEnabled": true,
+                // workbench
+                "workbench.editor.enablePreview": false,
+                "workbench.editor.highlightModifiedTabs": true,
+                "workbench.panel.defaultLocation": "right",
+                // cpp
+                "breadcrumbs.enabled": false,
+                // "C_Cpp.clang_format_path": "/usr/bin/clang-format",
+                "C_Cpp.default.cppStandard": "c++17",
+                "C_Cpp.default.cStandard": "c11",
+                // "C_Cpp.default.intelliSenseMode": "clang-x64",
+                "C_Cpp.intelliSenseCacheSize": 0,
+                "C_Cpp.updateChannel": "Insiders",
+
+                // coderunner
+                "code-runner.runInTerminal": true,
+                "code-runner.saveFileBeforeRun": true,
+                "code-runner.executorMap": {
+                    // "c": "cd $dir && gcc -g -static -std=gnu11 -lm -Wfatal-errors $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+                    "cpp": "cd $dir && mkdir -p .cr && g++ -static -Wall -Wextra -Wno-unknown-pragmas -pedantic -O2 -Wshadow -Wformat=2 -Wfloat-equal -Wlogical-op -Wcast-qual -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -D_FORTIFY_SOURCE=2 -fstack-protector $fileName -o ./.cr/$fileNameWithoutExt && timeout 5s ./.cr/$fileNameWithoutExt"
+                    // "python": "cd $dir && py $fileName"
+                }
             },
             "extensions": [
                 "ms-python.python",
                 "ms-vscode.cpptools",
                 "formulahendry.code-runner",
-                "DivyanshuAgrawal.competitive-programming-helper"
+                "DivyanshuAgrawal.competitive-programming-helper",
+                "vscodevim.vim"
             ]
         }
     }

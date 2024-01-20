@@ -17,8 +17,8 @@ int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     #ifndef ONLINE_JUDGE
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
     #endif
 
     vector<int> v;
@@ -26,10 +26,15 @@ int main(){
     v.push_back(7);
     v.push_back(6);
     v.push_back(9);
+    int x; cin >> x;
+    cout << x << endl;
+
     cout << "Hello World" << endl;
+
     for(auto i : v) {
         cout << i << " ";
     }
+
     cout << endl;
 
     return 0;
