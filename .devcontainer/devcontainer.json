@@ -1,0 +1,30 @@
+{
+	"name": "Devbox Setup",
+    // if you had another docker compose file that was supposed to be main compose file
+	"dockerComposeFile": ["./docker-compose.yml"],
+    "service": "devbox",
+    "workspaceFolder": "/home/smk/code",
+	"initializeCommand": "echo DevBox container started",
+    "containerUser": "smk",
+
+    "customizations": {
+        "vscode" : {
+            "settings": {
+                "terminal.integrated.profiles.linux": {
+                    "term": {
+                        "path": "/bin/sh"
+                    }
+                },
+                "terminal.integrated.defaultProfile.linux": "term",
+                "python.linting.enabled": true,
+                "python.linting.pylintEnabled": true
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-vscode.cpptools",
+                "formulahendry.code-runner",
+                "DivyanshuAgrawal.competitive-programming-helper"
+            ]
+        }
+    }
+}
