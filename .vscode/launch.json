@@ -4,7 +4,38 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "codelldb_launch",
+            "program": "${fileDirname}/.cr/${fileBasenameNoExtension}",
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/.cr/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": true,
+            "miDebuggerPath": "/usr/bin/gdb",
+            "miDebuggerArgs": "--quiet",
+            "MIMode": "gdb",
+            "targetArchitecture": "x86_64",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": false
+                }            
+            ],
+            "preLaunchTask": "cppbuild-custom"
 
+        }  
     ]
 
 }

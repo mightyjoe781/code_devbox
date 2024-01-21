@@ -18,7 +18,7 @@ int main(){
     cin.tie(NULL);
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
+    // freopen("output.txt", "w", stdout);
     #endif
 
     vector<int> v;
@@ -36,6 +36,26 @@ int main(){
     }
 
     cout << endl;
+
+    vector<int> arr = {3,1,2,4};
+    int MOD = 1e9 + 7;
+    stack<int> st;
+    long long ans = 0;
+    
+    for(int i = 0; i <= (int)arr.size(); i++) {
+        while(!st.empty() && (i == (int)arr.size() || arr[st.top()] >= arr[i])) {
+            int mid = st.top(); st.pop();
+            int left = st.empty() ? -1 : st.top();
+            int right = i;
+            
+            long cnt = (mid-left)*(right-mid) % MOD;
+            ans += (cnt * arr[mid]) % MOD;
+            ans %= MOD;
+        }
+        st.push(i);
+    }
+    cout << ans << endl;
+    // return (int) ans;
 
     return 0;
 }

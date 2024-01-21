@@ -5,6 +5,12 @@ services:
       context: .
       dockerfile: Dockerfile
 
+    # Required for ptrace-based debuggers like C++, Go, and Rust
+    cap_add:
+    - SYS_PTRACE
+    security_opt:
+    - seccomp:unconfined
+
     # mounts are relative to the first file in the list, which is a level up.
     volumes:
       - ..:/home/smk/code
